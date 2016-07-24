@@ -19,8 +19,10 @@ cordova plugin add https://github.com/ballplayer88/cordova-plugin-braintree-appl
 
 ## Methods
 
+```js
 - BTApplePay.initialize
 - BTApplePay.paymentRequest
+```
 
 #### BTApplePay.initialize
 
@@ -32,6 +34,7 @@ Is called to open the native Apple Pay payment footer. Options need to be define
 
 ## Example
 
+```js
 BTApplePay.initialize("tokenization_key",
   function () { console.log("init OK!"); },
   function (error) { console.error(error); });
@@ -49,3 +52,4 @@ BTApplePay.paymentRequest(options, function (nonce) {
 }, function() {
   // Catch error
 });
+```
