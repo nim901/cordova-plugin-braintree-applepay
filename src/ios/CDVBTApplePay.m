@@ -4,7 +4,7 @@
 //  Copyright (c) 2016 Robin Engbersen. All rights reserved.
 //
 
-#import "BraintreePlugin.h"
+#import "CDVBTApplePay.h"
 #import <objc/runtime.h>
 #import <BraintreeUI/BTPaymentRequest.h>
 #import <BraintreeUI/BTDropInViewController.h>
@@ -32,7 +32,12 @@ NSString *dropInUIcallbackId;
 NSString *itemName;
 NSString *paymentReceiver;
 
+NSString *merchantId;
+
 - (void)initialize:(CDVInvokedUrlCommand *)command {
+    
+    NSLog(@"Initialize Braintree Apple-Pay Plugin");
+    merchantId = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"ApplePayMerchant"];
     
     // Ensure we have the correct number of arguments.
     if ([command.arguments count] != 1) {
@@ -111,7 +116,7 @@ NSString *paymentReceiver;
     }
     
     PKPaymentRequest *paymentRequest = [[PKPaymentRequest alloc] init];
-    paymentRequest.merchantIdentifier = @"merchant.com.braintree.barpoint.test";
+    paymentRequest.merchantIdentifier = merchantId;
     paymentRequest.supportedNetworks = @[PKPaymentNetworkAmex, PKPaymentNetworkVisa, PKPaymentNetworkMasterCard];
     paymentRequest.merchantCapabilities = PKMerchantCapability3DS;
     paymentRequest.countryCode = countryCode; // e.g. US
