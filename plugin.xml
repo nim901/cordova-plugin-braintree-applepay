@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
         id="cordova-plugin-braintree-applepay" version="0.1.1">
-    <name>Braintree ApplePay</name>
+    <name>BraintreeApplePay</name>
     <description>Cordova Braintree Apple-Pay</description>
     <license>Apache 2.0</license>
     <keywords>cordova,payment,braintree,applepay</keywords>
     <repo>git@github.com:ballplayer88/cordova-plugin-braintree-applepay.git</repo>
+
+    <preference name="APPLE_PAY_MERCHANT" />
 
     <engines>
       <engine name="cordova-ios" version=">=3.5.0" />
