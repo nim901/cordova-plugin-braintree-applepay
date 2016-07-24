@@ -1,4 +1,4 @@
-# cordova-plugin-braintree-applepay
+# Cordova Plugin Braintree Apple Pay
 
 This plugin is a basic implementation of Braintree and Apple Pay with the purpose of returning a Braintree-Token to create a transaction.
 
