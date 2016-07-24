@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
         id="cordova-plugin-braintree-applepay" version="0.1.1">
-    <name>Device</name>
+    <name>Braintree ApplePay</name>
     <description>Cordova Braintree Apple-Pay</description>
     <license>Apache 2.0</license>
     <keywords>cordova,payment,braintree,applepay</keywords>
@@ -48,18 +48,5 @@
         <framework src="PassKit.framework" />
         <framework src="Foundation.framework" />
         <framework src="Security.framework" />
-    </platform>
-
-    <js-module src="www/device.js" name="device">
-        <clobbers target="device" />
-    </js-module>
-    <platform name="ios">
-        <config-file target="config.xml" parent="/*">
-            <feature name="Device">
-                <param name="ios-package" value="CDVDevice"/>
-            </feature>
-        </config-file>
-        <header-file src="src/ios/CDVDevice.h" />
-        <source-file src="src/ios/CDVDevice.m" />
     </platform>
 </plugin>
