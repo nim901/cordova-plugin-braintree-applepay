@@ -32,12 +32,9 @@ NSString *dropInUIcallbackId;
 NSString *itemName;
 NSString *paymentReceiver;
 
-NSString *merchantId;
+NSString *callbackId;
 
 - (void)initialize:(CDVInvokedUrlCommand *)command {
-    
-    NSLog(@"Initialize Braintree Apple-Pay Plugin");
-    merchantId = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"ApplePayMerchant"];
     
     // Ensure we have the correct number of arguments.
     if ([command.arguments count] != 1) {
@@ -68,6 +65,8 @@ NSString *merchantId;
 }
 
 - (void)paymentRequest:(CDVInvokedUrlCommand *)command {
+    
+    callbackId = command.callbackId;
     
     if (!self.braintreeClient) {
         CDVPluginResult *res = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"The Braintree client must first be initialized via BraintreePlugin.initialize(token)"];
@@ -116,7 +115,7 @@ NSString *merchantId;
     }
     
     PKPaymentRequest *paymentRequest = [[PKPaymentRequest alloc] init];
-    paymentRequest.merchantIdentifier = merchantId;
+    paymentRequest.merchantIdentifier = @"merchant.com.braintree.barpoint.test";
     paymentRequest.supportedNetworks = @[PKPaymentNetworkAmex, PKPaymentNetworkVisa, PKPaymentNetworkMasterCard];
     paymentRequest.merchantCapabilities = PKMerchantCapability3DS;
     paymentRequest.countryCode = countryCode; // e.g. US
@@ -138,28 +137,28 @@ NSString *merchantId;
                        didAuthorizePayment:(PKPayment *)payment
                                 completion:(void (^)(PKPaymentAuthorizationStatus))completion {
     
-    CDVPluginResult* pluginResult = nil;
-    
     // Example: Tokenize the Apple Pay payment
     BTApplePayClient *applePayClient = [[BTApplePayClient alloc]
                                         initWithAPIClient:self.braintreeClient];
     [applePayClient tokenizeApplePayPayment:payment
                                  completion:^(BTApplePayCardNonce *tokenizedApplePayPayment,
                                               NSError *error) {
+                                     
+                                     CDVPluginResult* pluginResult = nil;
                                      if (tokenizedApplePayPayment) {
                                          // On success, send nonce to your server for processing.
                                          // If applicable, address information is accessible in `payment`.
                                          NSLog(@"nonce = %@", tokenizedApplePayPayment.nonce);
                                          
                                          pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:tokenizedApplePayPayment.nonce];
-                                         [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
+                                         [self.commandDelegate sendPluginResult:pluginResult callbackId:callbackId];
                                          
                                          // Then indicate success or failure via the completion callback, e.g.
                                          completion(PKPaymentAuthorizationStatusSuccess);
                                      } else {
                                          // Tokenization failed. Check `error` for the cause of the failure.
                                          pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR];
-                                         [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
+                                         [self.commandDelegate sendPluginResult:pluginResult callbackId:callbackId];
                                          
                                          // Indicate failure via the completion callback:
                                          completion(PKPaymentAuthorizationStatusFailure);
