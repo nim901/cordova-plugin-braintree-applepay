@@ -53,3 +53,7 @@ BTApplePay.paymentRequest(options, function (nonce) {
   // Catch error
 });
 ```
+
+## Impressions
+
+![alt tag](http://xorox.io/wp-content/uploads/2016/07/iphone-payment-applepay.png)
