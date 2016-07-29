@@ -13,6 +13,8 @@ cordova plugin add https://github.com/ballplayer88/cordova-plugin-braintree-appl
   --variable APPLE_PAY_MERCHANT="merchant.com.apple.test"
 ```
 
+4. In xCode select your app and click on targets. There navigate to **Build Phases** / **Embed Frameworks** and select **Code Sign on Copy** for every file.
+
 ## Supported Platforms
 
 - iOS
