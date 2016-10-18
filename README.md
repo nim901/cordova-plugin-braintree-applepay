@@ -15,6 +15,8 @@ cordova plugin add https://github.com/ballplayer88/cordova-plugin-braintree-appl
 
 4. In xCode < version 8.0 select your app and click on targets. There navigate to **Build Phases** / **Embed Frameworks** and select **Code Sign on Copy** for every file. In xCode >= version 8.0 add braintree frameworks under **Targets** / **Embedded Binaries**
 
+5. For Archiving you have to set **Enable Bitcode on Debug** in **Build Settings** in xCode to **YES** and during the Archiving process uncheck checkbox saying **Rebuild from bitcode**.
+
 ## Supported Platforms
 
 - iOS
