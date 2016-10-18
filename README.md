@@ -1,6 +1,6 @@
-# Cordova Plugin Braintree Apple Pay
+# Ionic / Cordova Plugin Braintree Apple Pay
 
-This plugin is a basic implementation of Braintree and Apple Pay with the purpose of returning a Braintree-Token to create a transaction.
+This plugin is a basic implementation of Braintree and Apple Pay with the purpose of returning a Braintree-Token to create a transaction. It works on Cordova / Ionic.
 
 ## Installation
 
