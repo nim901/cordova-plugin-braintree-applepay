@@ -9,7 +9,7 @@ This plugin is a basic implementation of Braintree and Apple Pay with the purpos
 3. Install the plugin
 
 ```sh
-cordova plugin add https://github.com/ballplayer88/cordova-plugin-braintree-applepay \
+cordova plugin add https://github.com/nim901/cordova-plugin-braintree-applepay \
   --variable APPLE_PAY_MERCHANT="merchant.com.apple.test"
 ```
 
@@ -48,7 +48,8 @@ var options = {
   paymentReceiver: "OX Bar",
   amount: "255.50",
   countryCode: "SG",
-  currency: "SGD"
+  currency: "SGD",
+  merchantIdentifier: "merchant..."
 };
 
 BTApplePay.paymentRequest(options, function (nonce) {
