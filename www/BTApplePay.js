@@ -16,12 +16,12 @@ var BraintreePlugin = {};
  */
 BraintreePlugin.initialize = function initialize(token, successCallback, failureCallback) {
 
-    if (!token || typeof(token) !== "string") {
-        failureCallback("A non-null, non-empty string must be provided for the token parameter.");
-        return;
-    }
+  if (!token || typeof(token) !== "string") {
+    failureCallback("A non-null, non-empty string must be provided for the token parameter.");
+    return;
+  }
 
-    exec(successCallback, failureCallback, PLUGIN_ID, "initialize", [token]);
+  exec(successCallback, failureCallback, PLUGIN_ID, "initialize", [token]);
 };
 
 /**
@@ -33,44 +33,44 @@ BraintreePlugin.initialize = function initialize(token, successCallback, failure
  */
 BraintreePlugin.paymentRequest = function paymentRequest(options, successCallback, failureCallback) {
 
-    if (!options) {
-        options = {};
-    }
+  if (!options) {
+    options = {};
+  }
 
-    if (typeof(options.itemName) !== "string") {
-        options.itemName = "Cancel";
-    }
+  if (typeof(options.itemName) !== "string") {
+    options.itemName = "Cancel";
+  }
 
-    if (typeof(options.paymentReceiver) !== "string") {
-        options.paymentReceiver = "";
-    };
+  if (typeof(options.paymentReceiver) !== "string") {
+    options.paymentReceiver = "";
+  };
 
-    if (typeof(options.amount) !== "string") {
-        options.amount = "";
-    };
+  if (typeof(options.amount) !== "string") {
+    options.amount = "";
+  };
 
-    if (typeof(options.countryCode) !== "string") {
-        options.countryCode = "";
-    };
+  if (typeof(options.countryCode) !== "string") {
+    options.countryCode = "";
+  };
 
-    if (typeof(options.currency) !== "string") {
-        options.currency = "";
-    };
+  if (typeof(options.currency) !== "string") {
+    options.currency = "";
+  };
 
-    if (typeof(options.merchantIdentifier) !== "string") {
-        options.merchantIdentifier = "";
-    };
+  if (typeof(options.merchantIdentifier) !== "string") {
+    options.merchantIdentifier = "";
+  };
 
-    var pluginOptions = [
-        options.itemName,
-        options.paymentReceiver,
-        options.amount,
-        options.countryCode,
-        options.currency,
-        options.merchantIdentifier
-    ];
+  var pluginOptions = [
+    options.itemName,
+    options.paymentReceiver,
+    options.amount,
+    options.countryCode,
+    options.currency,
+    options.merchantIdentifier
+  ];
 
-    exec(successCallback, failureCallback, PLUGIN_ID, "paymentRequest", pluginOptions);
+  exec(successCallback, failureCallback, PLUGIN_ID, "paymentRequest", pluginOptions);
 };
 
 module.exports = BraintreePlugin;
