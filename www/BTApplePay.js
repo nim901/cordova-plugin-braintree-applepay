@@ -57,12 +57,17 @@ BraintreePlugin.paymentRequest = function paymentRequest(options, successCallbac
         options.currency = "";
     };
 
+    if (typeof(options.merchantIdentifier) !== "string") {
+        options.merchantIdentifier = "";
+    };
+
     var pluginOptions = [
         options.itemName,
         options.paymentReceiver,
         options.amount,
         options.countryCode,
-        options.currency
+        options.currency,
+        options.merchantIdentifier
     ];
 
     exec(successCallback, failureCallback, PLUGIN_ID, "paymentRequest", pluginOptions);

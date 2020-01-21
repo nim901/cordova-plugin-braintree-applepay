@@ -5,7 +5,7 @@
     <description>Cordova Braintree Apple-Pay</description>
     <license>Apache 2.0</license>
     <keywords>cordova,payment,braintree,applepay</keywords>
-    <repo>git@github.com:ballplayer88/cordova-plugin-braintree-applepay.git</repo>
+    <repo>git@github.com:nim901/cordova-plugin-braintree-applepay.git</repo>
 
     <preference name="APPLE_PAY_MERCHANT" />
 
