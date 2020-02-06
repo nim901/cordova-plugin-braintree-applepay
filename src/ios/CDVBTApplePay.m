@@ -11,10 +11,8 @@
 #import <BraintreeCore/BTAPIClient.h>
 #import <BraintreeCore/BTPaymentMethodNonce.h>
 #import <BraintreeCard/BTCardNonce.h>
-#import <BraintreePayPal/BraintreePayPal.h>
 #import <BraintreeApplePay/BraintreeApplePay.h>
 #import <Braintree3DSecure/Braintree3DSecure.h>
-#import <BraintreeVenmo/BraintreeVenmo.h>
 #import <PassKit/PassKit.h>
 
 @interface CDVBTApplePay() <BTDropInViewControllerDelegate>

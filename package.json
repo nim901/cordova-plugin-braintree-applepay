@@ -1,0 +1,18 @@
+{
+  "name": "cordova-plugin-braintree-applepay",
+  "version": "0.0.2",
+  "description": "This plugin is a basic implementation of Braintree and Apple Pay with the purpose of returning a Braintree-Token to create a transaction. It works on Cordova / Ionic.",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nim901/cordova-plugin-braintree-applepay.git"
+  },
+  "author": "",
+  "license": "Apache 2.0",
+  "bugs": {
+    "url": "https://github.com/nim901/cordova-plugin-braintree-applepay/issues"
+  },
+  "homepage": "https://github.com/nim901/cordova-plugin-braintree-applepay#readme"
+}
